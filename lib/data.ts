@@ -1,0 +1,338 @@
+// ─── Types ────────────────────────────────────────────────────────────────────
+export type ProjectStatus = 'Planned' | 'In Progress' | 'On Hold' | 'Completed' | 'Cancelled';
+export type WritingStatus = 'Planned' | 'In Progress' | 'On Hold' | 'Completed';
+export type CertificationStatus = 'Active' | 'Near Expiry' | 'Expired';
+
+export interface Project {
+  id: string;
+  name: string;
+  pictureUrl: string;
+  shortDescription: string;
+  dateCreate: string;
+  status: ProjectStatus;
+  longDescription: string;
+  otherPictures: string[];
+  techStack: string[];
+}
+
+export interface Writing {
+  id: string;
+  name: string;
+  shortDescription: string;
+  dateCreate: string;
+  status: WritingStatus;
+  urlFile: string;
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  status: CertificationStatus;
+  pictureUrl: string;
+  issuer: string;
+}
+
+export interface Education {
+  degree: string;
+  field: string;
+  institution: string;
+  year: string;
+}
+
+export interface CareerEntry {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+export interface People {
+  name: string;
+  title: string;
+  description: string;
+  workingAt: string;
+  skills: string[];
+  education: Education[];
+  carrierPath: CareerEntry[];
+  contact: { email: string; github: string; linkedin: string; twitter: string };
+  hobbies: string[];
+}
+
+// ─── Dummy Data ───────────────────────────────────────────────────────────────
+export const people: People = {
+  name: 'Achmad Fadil',
+  title: 'Full-Stack Software Engineer',
+  description:
+    'I build scalable, production-ready web applications with a focus on clean architecture and great developer experience. Passionate about Go backends, modern React frontends, and making complex systems simple.',
+  workingAt: 'PT. Teknologi Maju Bersama',
+  skills: [
+    'Go', 'TypeScript', 'Next.js', 'React', 'PostgreSQL',
+    'Redis', 'Docker', 'Kubernetes', 'gRPC', 'REST API', 'Git', 'Linux',
+  ],
+  education: [
+    {
+      degree: 'S.Kom',
+      field: 'Informatics Engineering',
+      institution: 'Universitas Indonesia',
+      year: '2020 – 2024',
+    },
+  ],
+  carrierPath: [
+    {
+      role: 'Junior Backend Developer',
+      company: 'Startup XYZ',
+      period: 'Jul 2024 – Dec 2024',
+      description:
+        'Built and maintained REST APIs for a B2B SaaS platform. Improved query performance by 40% through PostgreSQL indexing strategies.',
+    },
+    {
+      role: 'Full-Stack Engineer',
+      company: 'PT. Teknologi Maju Bersama',
+      period: 'Jan 2025 – Present',
+      description:
+        'Designing microservices architecture with Go and gRPC. Building admin dashboards with Next.js and Tailwind CSS. Leading a team of 3 engineers on the core platform.',
+    },
+  ],
+  contact: {
+    email: 'achmad@example.com',
+    github: 'https://github.com/AchmadFadil128',
+    linkedin: 'https://linkedin.com/in/achmadFadil',
+    twitter: 'https://twitter.com/achmadFadil',
+  },
+  hobbies: ['Open-Source Contributing', 'Reading Tech Articles', 'Chess', 'Photography', 'Cycling'],
+};
+
+export const projects: Project[] = [
+  {
+    id: 'portfolio-v3',
+    name: 'Portfolio v3',
+    pictureUrl: 'https://picsum.photos/seed/porto3/800/450',
+    shortDescription:
+      'A modern personal portfolio built with Next.js 16, Tailwind CSS v4, and a Go REST API backend.',
+    dateCreate: '2026-04-01',
+    status: 'In Progress',
+    longDescription: `This is the third iteration of my personal portfolio website, built from scratch with Next.js App Router, Tailwind CSS v4, and a Golang REST API for content management.
+
+The project features a clean, documentation-inspired design system modeled after Mintlify — emphasizing readability, generous whitespace, and subtle micro-interactions.
+
+Key features include a flexible data abstraction layer that supports both static dummy data and live API integration, dynamic project/writing/certification pages, and a fully responsive layout.`,
+    otherPictures: [
+      'https://picsum.photos/seed/porto3b/800/450',
+      'https://picsum.photos/seed/porto3c/800/450',
+    ],
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Go', 'PostgreSQL'],
+  },
+  {
+    id: 'inventory-system',
+    name: 'Inventory Management System',
+    pictureUrl: 'https://picsum.photos/seed/invent1/800/450',
+    shortDescription:
+      'Full-stack inventory and warehouse management with real-time stock tracking and sales analytics.',
+    dateCreate: '2025-10-15',
+    status: 'Completed',
+    longDescription: `A comprehensive inventory management system for small-to-medium businesses. Provides real-time stock tracking, purchase order management, and detailed sales analytics.
+
+Built with a Go microservices backend and a Next.js admin dashboard. Handles thousands of SKUs with sub-second query performance via strategic PostgreSQL indexing and Redis caching.
+
+Features include barcode scanning integration, automated low-stock alerts, multi-warehouse support, and CSV export for financial reporting.`,
+    otherPictures: [
+      'https://picsum.photos/seed/invent2/800/450',
+      'https://picsum.photos/seed/invent3/800/450',
+    ],
+    techStack: ['Go', 'PostgreSQL', 'Redis', 'Next.js', 'Docker'],
+  },
+  {
+    id: 'task-orchestrator',
+    name: 'Distributed Task Orchestrator',
+    pictureUrl: 'https://picsum.photos/seed/tasks1/800/450',
+    shortDescription:
+      'Lightweight distributed task queue with priority scheduling, worker pooling, and a real-time monitoring UI.',
+    dateCreate: '2025-07-20',
+    status: 'Completed',
+    longDescription: `A distributed task queue and orchestration system inspired by Celery, built in Go for higher throughput and lower memory footprint.
+
+Supports priority-based scheduling, dead-letter queues, retries with exponential backoff, and a web UI for real-time monitoring.
+
+Worker nodes communicate via gRPC. The control plane uses Redis for task state and PostgreSQL for persistent history.`,
+    otherPictures: ['https://picsum.photos/seed/tasks2/800/450'],
+    techStack: ['Go', 'gRPC', 'Redis', 'PostgreSQL', 'React'],
+  },
+  {
+    id: 'ml-data-pipeline',
+    name: 'ML Data Pipeline',
+    pictureUrl: 'https://picsum.photos/seed/pipe1/800/450',
+    shortDescription:
+      'Automated ETL pipeline for ingesting and preprocessing time-series sensor data for ML model consumption.',
+    dateCreate: '2025-03-10',
+    status: 'On Hold',
+    longDescription: `An automated ETL pipeline designed to ingest and preprocess time-series sensor data for machine learning consumption.
+
+Handles data ingestion from multiple sources (IoT sensors, CSV uploads, API feeds), applies configurable transformation rules, and outputs clean, normalized datasets to an S3-compatible object store.
+
+Currently on hold pending budget approval for the ML training infrastructure.`,
+    otherPictures: [
+      'https://picsum.photos/seed/pipe2/800/450',
+      'https://picsum.photos/seed/pipe3/800/450',
+    ],
+    techStack: ['Python', 'Go', 'Apache Kafka', 'PostgreSQL', 'MinIO'],
+  },
+  {
+    id: 'chat-app',
+    name: 'Real-Time Chat Application',
+    pictureUrl: 'https://picsum.photos/seed/chat1/800/450',
+    shortDescription:
+      'Scalable real-time chat with WebSocket support, group rooms, and end-to-end message persistence.',
+    dateCreate: '2024-11-01',
+    status: 'Completed',
+    longDescription: `A production-grade real-time chat application supporting thousands of concurrent connections via WebSockets.
+
+Features user authentication (JWT), group rooms, direct messages, message history in PostgreSQL, and file attachment support. Uses a fan-out architecture to broadcast messages efficiently.
+
+The frontend is built with React using a custom WebSocket hook with automatic reconnection.`,
+    otherPictures: ['https://picsum.photos/seed/chat2/800/450'],
+    techStack: ['Go', 'WebSocket', 'React', 'PostgreSQL', 'JWT'],
+  },
+  {
+    id: 'api-gateway',
+    name: 'API Gateway & Rate Limiter',
+    pictureUrl: 'https://picsum.photos/seed/gway1/800/450',
+    shortDescription:
+      'Custom API gateway with JWT auth, token-bucket rate limiting, request routing, and Prometheus metrics.',
+    dateCreate: '2025-01-15',
+    status: 'Planned',
+    longDescription: `A lightweight, high-performance API gateway designed to sit in front of microservices. Handles authentication, authorization, rate limiting, and routing without enterprise overhead.
+
+Uses token-bucket algorithm for rate limiting with per-user and per-endpoint granularity. Prometheus metrics exported for Grafana dashboards.
+
+Currently in the planning phase with architecture design complete.`,
+    otherPictures: [],
+    techStack: ['Go', 'Redis', 'Prometheus', 'Docker', 'Nginx'],
+  },
+];
+
+export const writings: Writing[] = [
+  {
+    id: 'go-microservices-patterns',
+    name: 'Go Microservices Patterns You Should Know',
+    shortDescription:
+      'A deep dive into battle-tested patterns for building maintainable microservices in Go — from service discovery to circuit breakers.',
+    dateCreate: '2026-03-15',
+    status: 'Completed',
+    urlFile: 'https://medium.com/@achmad/go-microservices-patterns',
+  },
+  {
+    id: 'nextjs-app-router-guide',
+    name: 'The Practical Next.js App Router Guide',
+    shortDescription:
+      'Everything I wish I knew before migrating from Pages Router to App Router — server components, streaming, and the data fetching model explained.',
+    dateCreate: '2026-02-10',
+    status: 'Completed',
+    urlFile: 'https://medium.com/@achmad/nextjs-app-router',
+  },
+  {
+    id: 'postgresql-indexing',
+    name: 'PostgreSQL Indexing Strategies for High-Traffic Apps',
+    shortDescription:
+      'Practical indexing strategies that reduced query times by 80% in production — B-tree, GIN, partial indexes, and EXPLAIN ANALYZE.',
+    dateCreate: '2026-01-20',
+    status: 'Completed',
+    urlFile: 'https://medium.com/@achmad/pg-indexing',
+  },
+  {
+    id: 'docker-compose-patterns',
+    name: 'Docker Compose Patterns for Local Development',
+    shortDescription:
+      'How to structure Docker Compose for complex multi-service local environments without losing your mind.',
+    dateCreate: '2025-12-05',
+    status: 'Completed',
+    urlFile: 'https://medium.com/@achmad/docker-compose-patterns',
+  },
+  {
+    id: 'grpc-vs-rest',
+    name: 'gRPC vs REST: When to Use Which',
+    shortDescription:
+      'A pragmatic comparison of gRPC and REST APIs — performance benchmarks, developer experience, and real-world trade-offs.',
+    dateCreate: '2025-10-30',
+    status: 'Completed',
+    urlFile: 'https://medium.com/@achmad/grpc-vs-rest',
+  },
+  {
+    id: 'react-state-deep-dive',
+    name: 'React State Management: A 2025 Deep Dive',
+    shortDescription:
+      'Comparing useState, useReducer, Zustand, and React Query — and how to pick the right tool for your project.',
+    dateCreate: '2025-09-12',
+    status: 'In Progress',
+    urlFile: '',
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    id: 'aws-saa',
+    name: 'AWS Certified Solutions Architect – Associate',
+    status: 'Active',
+    pictureUrl: 'https://picsum.photos/seed/aws1/400/280',
+    issuer: 'Amazon Web Services',
+  },
+  {
+    id: 'cka',
+    name: 'Certified Kubernetes Administrator (CKA)',
+    status: 'Active',
+    pictureUrl: 'https://picsum.photos/seed/cka1/400/280',
+    issuer: 'Cloud Native Computing Foundation',
+  },
+  {
+    id: 'google-associate',
+    name: 'Google Associate Cloud Engineer',
+    status: 'Near Expiry',
+    pictureUrl: 'https://picsum.photos/seed/gcp1/400/280',
+    issuer: 'Google Cloud',
+  },
+  {
+    id: 'go-cert',
+    name: 'Go Programming Language Professional',
+    status: 'Active',
+    pictureUrl: 'https://picsum.photos/seed/gopl/400/280',
+    issuer: 'The Go Authors',
+  },
+  {
+    id: 'postgresql-cert',
+    name: 'PostgreSQL Professional Certification',
+    status: 'Expired',
+    pictureUrl: 'https://picsum.photos/seed/pgcert/400/280',
+    issuer: 'PostgreSQL Global Development Group',
+  },
+  {
+    id: 'docker-cert',
+    name: 'Docker Certified Associate',
+    status: 'Active',
+    pictureUrl: 'https://picsum.photos/seed/dkrcert/400/280',
+    issuer: 'Docker, Inc.',
+  },
+];
+
+// ─── Service Functions (abstraction layer for future API migration) ────────────
+export async function getPeople(): Promise<People> {
+  return people;
+}
+
+export async function getProjects(): Promise<Project[]> {
+  return projects;
+}
+
+export async function getProjectById(id: string): Promise<Project | undefined> {
+  return projects.find((p) => p.id === id);
+}
+
+export async function getWritings(): Promise<Writing[]> {
+  return writings;
+}
+
+export async function getWritingById(id: string): Promise<Writing | undefined> {
+  return writings.find((w) => w.id === id);
+}
+
+export async function getCertifications(): Promise<Certification[]> {
+  return certifications;
+}
