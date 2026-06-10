@@ -65,10 +65,11 @@ export default async function HomePage() {
               {/* Lanyard Graphic */}
               <div className="relative w-full h-[500px] md:h-[600px] flex justify-center items-center rounded-2xl overflow-hidden pointer-events-auto">
                 <LanyardWrapper 
-                  position={[0, 0, 20]} 
+                  position={[0, 0, 14]} 
                   gravity={[0, -40, 0]} 
                   frontImage="/images/profil.png" 
                   transparent={true}
+                  lanyardWidth={2}
                 />
               </div>
             </div>
