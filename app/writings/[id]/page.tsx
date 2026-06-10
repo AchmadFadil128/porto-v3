@@ -15,6 +15,8 @@ export async function generateStaticParams() {
   return writings.map((w) => ({ id: w.id }));
 }
 
+export const dynamicParams = true;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const writing = await getWritingById(id);

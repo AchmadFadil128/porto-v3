@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { people } from "@/lib/data";
 
 const footerLinks = [
   { href: "/about", label: "About" },
@@ -9,7 +10,7 @@ const footerLinks = [
 
 const socialLinks = [
   {
-    href: "https://github.com/AchmadFadil128",
+    href: people.contact.github,
     label: "GitHub",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
@@ -18,7 +19,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://linkedin.com/in/achmadFadil",
+    href: people.contact.linkedin,
     label: "LinkedIn",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
@@ -27,7 +28,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "mailto:achmad@example.com",
+    href: `mailto:${people.contact.email}`,
     label: "Email",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
@@ -48,10 +49,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <p className="font-semibold text-[15px] text-[#0d0d0d] tracking-tight mb-1">
-              Achmad<span className="text-[#18E299]">.</span>
+              {people.name.split(" ")[0]}<span className="text-[#18E299]">.</span>
             </p>
             <p className="text-[13px] text-[#666666]">
-              Full-Stack Software Engineer
+              {people.title}
             </p>
           </div>
 
@@ -87,7 +88,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-[rgba(0,0,0,0.05)]">
           <p className="text-[12px] text-[#888888]">
-            © {year} Achmad Fadil. Built with Next.js & Tailwind CSS.
+            © {year} {people.name}. Built with Next.js & Tailwind CSS.
           </p>
         </div>
       </div>

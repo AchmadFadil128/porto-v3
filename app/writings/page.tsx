@@ -4,9 +4,11 @@ import Footer from "@/app/components/Footer";
 import WritingCard from "@/app/components/WritingCard";
 import { getWritings } from "@/lib/data";
 
+import { people } from "@/lib/data";
+
 export const metadata: Metadata = {
   title: "Writings",
-  description: "Articles and essays by Achmad Fadil on software engineering, Go, and web development.",
+  description: `Articles and essays by ${people.name} on software engineering, cloud, and web development.`,
 };
 
 export default async function WritingsPage() {

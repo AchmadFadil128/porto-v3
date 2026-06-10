@@ -58,48 +58,79 @@ export interface People {
   hobbies: string[];
 }
 
+// ─── API Config ───────────────────────────────────────────────────────────────
+const API_BASE = process.env.API_BASE_URL ?? 'http://localhost:4000';
+
+async function apiFetch<T>(path: string): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`, {
+    // Next.js 16 cache: revalidate setiap 60 detik
+    next: { revalidate: 60 },
+  });
+
+  if (!res.ok) {
+    throw new Error(`API error ${res.status}: ${path}`);
+  }
+
+  const json = await res.json();
+  return json.data as T;
+}
+
 // ─── Dummy Data ───────────────────────────────────────────────────────────────
 export const people: People = {
-  name: 'Achmad Fadil',
-  title: 'Full-Stack Software Engineer',
+  name: 'Achmad Fadil Nur Ramdhani',
+  title: 'Junior Cloud Engineer',
   description:
-    'I build scalable, production-ready web applications with a focus on clean architecture and great developer experience. Passionate about Go backends, modern React frontends, and making complex systems simple.',
-  workingAt: 'PT. Teknologi Maju Bersama',
+    'Building reliable Kubernetes platforms, observability stacks, and automated infrastructure.',
+  workingAt: 'PT Indostorage Solusi Teknologi',
   skills: [
-    'Go', 'TypeScript', 'Next.js', 'React', 'PostgreSQL',
-    'Redis', 'Docker', 'Kubernetes', 'gRPC', 'REST API', 'Git', 'Linux',
+    'Kubernetes',
+    'Docker',
+    'Linux',
+    'Rancher',
+    'GitLab CI/CD',
+    'Grafana',
+    'VictoriaMetrics',
+    'Alloy',
+    'Nginx',
+    'HAProxy',
+    'Proxmox',
+    'Cloud Computing',
+    'Infrastructure Monitoring',
+    'DevOps',
+    'Bash',
+    'Git',
   ],
   education: [
     {
-      degree: 'S.Kom',
-      field: 'Informatics Engineering',
-      institution: 'Universitas Indonesia',
-      year: '2020 – 2024',
+      degree: 'Vocational High School Student',
+      field: 'Computer and Network Engineering',
+      institution: 'SMKN 1 Cimahi',
+      year: '2023 – Present',
     },
   ],
   carrierPath: [
     {
-      role: 'Junior Backend Developer',
-      company: 'Startup XYZ',
-      period: 'Jul 2024 – Dec 2024',
+      role: 'Cloud Engineering Intern (Vocational Internship)',
+      company: 'PT Indostorage Solusi Teknologi',
+      period: 'Jul 2025 – Dec 2025',
       description:
-        'Built and maintained REST APIs for a B2B SaaS platform. Improved query performance by 40% through PostgreSQL indexing strategies.',
+        'Learned cloud infrastructure fundamentals, Linux system administration, containerization, monitoring, and high-availability environments. Participated in infrastructure deployment, system monitoring, and operational tasks while gaining hands-on experience with enterprise-grade technologies.',
     },
     {
-      role: 'Full-Stack Engineer',
-      company: 'PT. Teknologi Maju Bersama',
-      period: 'Jan 2025 – Present',
+      role: 'Cloud Engineering Intern',
+      company: 'PT Indostorage Solusi Teknologi',
+      period: 'Jan 2026 – Present',
       description:
-        'Designing microservices architecture with Go and gRPC. Building admin dashboards with Next.js and Tailwind CSS. Leading a team of 3 engineers on the core platform.',
+        'Working with Kubernetes, Rancher, monitoring stacks, virtualization platforms, and cloud infrastructure. Contributing to deployment automation, observability implementations, containerized applications, and internal platform operations while preparing for the Certified Kubernetes Administrator (CKA) certification.',
     },
   ],
   contact: {
-    email: 'achmad@example.com',
+    email: 'me@achmad128.my.id',
     github: 'https://github.com/AchmadFadil128',
-    linkedin: 'https://linkedin.com/in/achmadFadil',
-    twitter: 'https://twitter.com/achmadFadil',
+    linkedin: 'https://linkedin.com/in/achmad-fadil-nur-ramdhani/',
+    twitter: 'https://x.com/achmad128f',
   },
-  hobbies: ['Open-Source Contributing', 'Reading Tech Articles', 'Chess', 'Photography', 'Cycling'],
+  hobbies: ['Reading Tech Articles', 'Chess', 'Photography', 'Cycling'],
 };
 
 export const projects: Project[] = [
@@ -312,27 +343,54 @@ export const certifications: Certification[] = [
   },
 ];
 
-// ─── Service Functions (abstraction layer for future API migration) ────────────
+// ─── Service Functions (REST API) ────────────────────────────────────────────
+
 export async function getPeople(): Promise<People> {
+  // People bersifat hardcoded — tidak dari API
   return people;
 }
 
 export async function getProjects(): Promise<Project[]> {
-  return projects;
+  try {
+    return await apiFetch<Project[]>('/api/projects');
+  } catch (err) {
+    console.error('[getProjects] Falling back to dummy data:', err);
+    return projects; // fallback ke dummy data saat API tidak tersedia
+  }
 }
 
 export async function getProjectById(id: string): Promise<Project | undefined> {
-  return projects.find((p) => p.id === id);
+  try {
+    return await apiFetch<Project>(`/api/projects/${id}`);
+  } catch (err) {
+    console.error(`[getProjectById] ${id}:`, err);
+    return undefined;
+  }
 }
 
 export async function getWritings(): Promise<Writing[]> {
-  return writings;
+  try {
+    return await apiFetch<Writing[]>('/api/writings');
+  } catch (err) {
+    console.error('[getWritings] Falling back to dummy data:', err);
+    return writings;
+  }
 }
 
 export async function getWritingById(id: string): Promise<Writing | undefined> {
-  return writings.find((w) => w.id === id);
+  try {
+    return await apiFetch<Writing>(`/api/writings/${id}`);
+  } catch (err) {
+    console.error(`[getWritingById] ${id}:`, err);
+    return undefined;
+  }
 }
 
 export async function getCertifications(): Promise<Certification[]> {
-  return certifications;
+  try {
+    return await apiFetch<Certification[]>('/api/certifications');
+  } catch (err) {
+    console.error('[getCertifications] Falling back to dummy data:', err);
+    return certifications;
+  }
 }

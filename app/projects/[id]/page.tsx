@@ -16,6 +16,8 @@ export async function generateStaticParams() {
   return projects.map((p) => ({ id: p.id }));
 }
 
+export const dynamicParams = true;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const project = await getProjectById(id);

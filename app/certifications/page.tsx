@@ -4,9 +4,11 @@ import Footer from "@/app/components/Footer";
 import CertificationCard from "@/app/components/CertificationCard";
 import { getCertifications } from "@/lib/data";
 
+import { people } from "@/lib/data";
+
 export const metadata: Metadata = {
   title: "Certifications",
-  description: "Professional certifications held by Achmad Fadil.",
+  description: `Professional certifications held by ${people.name}.`,
 };
 
 export default async function CertificationsPage() {

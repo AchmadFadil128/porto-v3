@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { people } from "@/lib/data";
 
 const links = [
   { href: "/", label: "Home" },
@@ -24,7 +25,7 @@ export default function Navbar() {
           href="/"
           className="font-semibold text-[15px] text-[#0d0d0d] tracking-tight hover:text-[#18E299] transition-colors duration-200"
         >
-          Achmad<span className="text-[#18E299]">.</span>
+          {people.name.split(" ")[0]}<span className="text-[#18E299]">.</span>
         </Link>
 
         {/* Desktop nav */}
@@ -47,7 +48,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <Link
-            href="mailto:achmad@example.com"
+            href={`mailto:${people.contact.email}`}
             className="px-5 py-2 rounded-full bg-[#0d0d0d] text-white text-[14px] font-medium shadow-[rgba(0,0,0,0.06)_0px_1px_2px] hover:opacity-90 transition-opacity duration-200"
           >
             Get in Touch
@@ -104,7 +105,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="mailto:achmad@example.com"
+            href={`mailto:${people.contact.email}`}
             onClick={() => setOpen(false)}
             className="mt-2 px-5 py-2.5 rounded-full bg-[#0d0d0d] text-white text-[14px] font-medium text-center hover:opacity-90 transition-opacity duration-200"
           >

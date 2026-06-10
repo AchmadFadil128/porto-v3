@@ -5,6 +5,7 @@ import ProjectCard from "./components/ProjectCard";
 import WritingCard from "./components/WritingCard";
 import CertificationCard from "./components/CertificationCard";
 import { getPeople, getProjects, getWritings, getCertifications } from "@/lib/data";
+import LanyardWrapper from "./components/LanyardWrapper";
 
 export default async function HomePage() {
   const [person, projects, writings, certs] = await Promise.all([
@@ -20,41 +21,56 @@ export default async function HomePage() {
       <main className="flex-1">
 
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
-        <section className="hero-gradient pt-24 pb-20 md:pt-32 md:pb-28">
-          <div className="max-w-6xl mx-auto px-6 md:px-8 text-center">
-            {/* Available badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(0,0,0,0.08)] bg-white text-[12px] font-mono font-medium uppercase tracking-[0.6px] text-[#0fa76e] mb-8 shadow-[rgba(0,0,0,0.03)_0px_2px_4px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#18E299] animate-pulse" />
-              Available for new opportunities
-            </div>
+        <section className="hero-gradient pt-10 pb-12 md:pt-16 md:pb-20">
+          <div className="max-w-6xl mx-auto px-6 md:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="text-left">
+                {/* Available badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(0,0,0,0.08)] bg-white text-[12px] font-mono font-medium uppercase tracking-[0.6px] text-[#0fa76e] mb-8 shadow-[rgba(0,0,0,0.03)_0px_2px_4px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#18E299] animate-pulse" />
+                  Available for new opportunities
+                </div>
 
-            <h1
-              className="text-[48px] md:text-[64px] font-semibold text-[#0d0d0d] leading-[1.1] mb-6"
-              style={{ letterSpacing: "-1.28px" }}
-            >
-              {person.name}
-            </h1>
-            <p className="text-[18px] md:text-[20px] font-medium text-[#18E299] mb-4 tracking-tight">
-              {person.title}
-            </p>
-            <p className="text-[16px] md:text-[18px] text-[#666666] leading-relaxed max-w-2xl mx-auto mb-10">
-              {person.description}
-            </p>
+                <h1
+                  className="text-[48px] md:text-[64px] font-semibold text-[#0d0d0d] leading-[1.1] mb-6"
+                  style={{ letterSpacing: "-1.28px" }}
+                >
+                  {person.name}
+                </h1>
+                <p className="text-[18px] md:text-[20px] font-medium text-[#18E299] mb-4 tracking-tight">
+                  {person.title}
+                </p>
+                <p className="text-[16px] md:text-[18px] text-[#666666] leading-relaxed max-w-2xl mb-10">
+                  {person.description}
+                </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/about"
-                className="px-6 py-2.5 rounded-full bg-[#0d0d0d] text-white text-[15px] font-medium shadow-[rgba(0,0,0,0.06)_0px_1px_2px] hover:opacity-90 transition-opacity duration-200"
-              >
-                About Me
-              </Link>
-              <Link
-                href="/projects"
-                className="px-6 py-2.5 rounded-full bg-white text-[#0d0d0d] text-[15px] font-medium border border-[rgba(0,0,0,0.08)] hover:opacity-90 transition-opacity duration-200"
-              >
-                View Projects
-              </Link>
+                {/* CTAs */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/about"
+                    className="px-6 py-2.5 rounded-full bg-[#0d0d0d] text-white text-[15px] font-medium shadow-[rgba(0,0,0,0.06)_0px_1px_2px] hover:opacity-90 transition-opacity duration-200"
+                  >
+                    About Me
+                  </Link>
+                  <Link
+                    href="/projects"
+                    className="px-6 py-2.5 rounded-full bg-white text-[#0d0d0d] text-[15px] font-medium border border-[rgba(0,0,0,0.08)] hover:opacity-90 transition-opacity duration-200"
+                  >
+                    View Projects
+                  </Link>
+                </div>
+              </div>
+
+              {/* Lanyard Graphic */}
+              <div className="relative w-full h-[500px] md:h-[600px] flex justify-center items-center rounded-2xl overflow-hidden pointer-events-auto">
+                <LanyardWrapper 
+                  position={[0, 0, 20]} 
+                  gravity={[0, -40, 0]} 
+                  frontImage="/images/profil.png" 
+                  transparent={true}
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -279,7 +295,7 @@ export default async function HomePage() {
                 I&apos;m open to freelance projects, full-time roles, and interesting collaborations. Let&apos;s build something great together.
               </p>
               <Link
-                href="mailto:achmad@example.com"
+                href={`mailto:${person.contact.email}`}
                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#18E299] text-[#0d0d0d] text-[15px] font-medium hover:opacity-90 transition-opacity duration-200"
               >
                 Say Hello →

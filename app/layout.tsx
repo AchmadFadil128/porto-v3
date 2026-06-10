@@ -14,16 +14,17 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+import { people } from "@/lib/data";
+
 export const metadata: Metadata = {
   title: {
-    default: "Achmad Fadil — Full-Stack Software Engineer",
-    template: "%s | Achmad Fadil",
+    default: `${people.name} — ${people.title}`,
+    template: `%s | ${people.name}`,
   },
-  description:
-    "Personal portfolio of Achmad Fadil, a Full-Stack Software Engineer specialising in Go backends and modern React frontends.",
-  keywords: ["software engineer", "Go", "Next.js", "TypeScript", "portfolio"],
-  authors: [{ name: "Achmad Fadil" }],
-  creator: "Achmad Fadil",
+  description: people.description,
+  keywords: ["software engineer", "kubernetes", "docker", "linux", "next.js", "typescript", "portfolio", ...people.skills.map(s => s.toLowerCase())],
+  authors: [{ name: people.name }],
+  creator: people.name,
 };
 
 export default function RootLayout({

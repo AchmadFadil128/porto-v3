@@ -4,9 +4,11 @@ import Footer from "@/app/components/Footer";
 import ProjectCard from "@/app/components/ProjectCard";
 import { getProjects } from "@/lib/data";
 
+import { people } from "@/lib/data";
+
 export const metadata: Metadata = {
   title: "Projects",
-  description: "All projects by Achmad Fadil — full-stack software engineer.",
+  description: `All projects by ${people.name} — ${people.title.toLowerCase()}.`,
 };
 
 export default async function ProjectsPage() {
