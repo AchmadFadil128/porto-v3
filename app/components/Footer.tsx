@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { people } from "@/lib/data";
 
 const footerLinks = [
@@ -43,33 +42,31 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-[rgba(0,0,0,0.05)] bg-white">
+    <footer className="mt-auto border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950">
       <div className="max-w-6xl mx-auto px-6 md:px-8 py-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          {/* Brand */}
+
           <div>
-            <p className="font-semibold text-[15px] text-[#0d0d0d] tracking-tight mb-1">
+            <p className="font-semibold text-[15px] text-neutral-900 dark:text-neutral-100 tracking-tight mb-1">
               {people.name.split(" ")[0]}<span className="text-[#18E299]">.</span>
             </p>
-            <p className="text-[13px] text-[#666666]">
+            <p className="text-[13px] text-neutral-500 dark:text-neutral-400">
               {people.title}
             </p>
           </div>
 
-          {/* Nav links */}
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {footerLinks.map(({ href, label }) => (
               <a
                 key={href}
                 href={href}
-                className="text-[13px] font-medium text-[#666666] hover:text-[#18E299] transition-colors duration-200"
+                className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400 hover:text-[#18E299] transition-colors duration-200"
               >
                 {label}
               </a>
             ))}
           </div>
 
-          {/* Social icons */}
           <div className="flex items-center gap-3">
             {socialLinks.map(({ href, label, icon }) => (
               <a
@@ -78,7 +75,7 @@ export default function Footer() {
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 aria-label={label}
-                className="p-2 rounded-lg text-[#888888] hover:text-[#18E299] hover:bg-[#d4fae8]/40 transition-all duration-200"
+                className="p-2 rounded-lg text-neutral-400 dark:text-neutral-500 hover:text-[#18E299] hover:bg-brand-light/40 dark:hover:bg-[rgba(24,226,153,0.1)] transition-all duration-200"
               >
                 {icon}
               </a>
@@ -86,8 +83,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-[rgba(0,0,0,0.05)]">
-          <p className="text-[12px] text-[#888888]">
+        <div className="mt-8 pt-6 border-t border-neutral-100 dark:border-neutral-800">
+          <p className="text-[12px] text-neutral-400 dark:text-neutral-500">
             © {year} {people.name}. Built with Next.js & Tailwind CSS.
           </p>
         </div>

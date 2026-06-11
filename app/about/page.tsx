@@ -57,29 +57,27 @@ export default function AboutPage() {
       <main className="flex-1">
 
         {/* ── Profile Hero ──────────────────────────────────────────────────── */}
-        <section className="hero-gradient pt-20 pb-14 md:pt-28 md:pb-20 border-b border-[rgba(0,0,0,0.05)]">
+        <section className="pt-20 pb-14 md:pt-28 md:pb-20 border-b border-neutral-100 dark:border-neutral-800">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-[#888888] mb-4">
+            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-neutral-500 dark:text-neutral-400 mb-4">
               About
             </p>
 
-            {/* Avatar placeholder */}
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#18E299] to-[#0fa76e] flex items-center justify-center mb-6 text-white text-[22px] font-semibold shadow-[rgba(0,0,0,0.06)_0px_1px_2px]">
               {p.name.split(" ").map(n => n[0]).join("").substring(0, 2).toUpperCase()}
             </div>
 
             <h1
-              className="text-[36px] md:text-[52px] font-semibold text-[#0d0d0d] mb-3 leading-tight"
+              className="text-[36px] md:text-[52px] font-semibold text-neutral-900 dark:text-neutral-100 mb-3 leading-tight"
               style={{ letterSpacing: "-0.8px" }}
             >
               {p.name}
             </h1>
             <p className="text-[18px] font-medium text-[#18E299] mb-5">{p.title}</p>
-            <p className="text-[16px] md:text-[17px] text-[#666666] leading-relaxed max-w-2xl">
+            <p className="text-[16px] md:text-[17px] text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-2xl">
               {p.description}
             </p>
 
-            {/* Social links */}
             <div className="flex flex-wrap gap-3 mt-8">
               {social.map(({ href, label, icon }) => (
                 <a
@@ -87,7 +85,7 @@ export default function AboutPage() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(0,0,0,0.08)] bg-white text-[13px] font-medium text-[#333333] hover:border-[#18E299] hover:text-[#18E299] transition-all duration-200 shadow-[rgba(0,0,0,0.03)_0px_2px_4px]"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-[13px] font-medium text-neutral-700 dark:text-neutral-300 hover:border-[#18E299] hover:text-[#18E299] transition-all duration-200"
                 >
                   {icon}
                   {label}
@@ -98,13 +96,13 @@ export default function AboutPage() {
         </section>
 
         {/* ── Hobbies ───────────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 border-b border-[rgba(0,0,0,0.05)]">
+        <section className="py-16 md:py-20 border-b border-neutral-100 dark:border-neutral-800">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-[#888888] mb-3">
+            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-neutral-500 dark:text-neutral-400 mb-3">
               Personal
             </p>
             <h2
-              className="text-[26px] md:text-[32px] font-semibold text-[#0d0d0d] mb-8"
+              className="text-[26px] md:text-[32px] font-semibold text-neutral-900 dark:text-neutral-100 mb-8"
               style={{ letterSpacing: "-0.5px" }}
             >
               Hobbies &amp; Interests
@@ -113,7 +111,7 @@ export default function AboutPage() {
               {p.hobbies.map((hobby) => (
                 <span
                   key={hobby}
-                  className="px-4 py-2 rounded-full border border-[rgba(0,0,0,0.05)] bg-white text-[14px] font-medium text-[#333333] shadow-[rgba(0,0,0,0.03)_0px_2px_4px] hover:border-[#18E299] hover:text-[#18E299] transition-all duration-200"
+                  className="px-4 py-2 rounded-full border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-[14px] font-medium text-neutral-700 dark:text-neutral-300 hover:border-[#18E299] hover:text-[#18E299] transition-all duration-200"
                 >
                   {hobby}
                 </span>
@@ -123,61 +121,57 @@ export default function AboutPage() {
         </section>
 
         {/* ── Education & Career Timeline ───────────────────────────────────── */}
-        <section className="py-16 md:py-20 border-b border-[rgba(0,0,0,0.05)]">
+        <section className="py-16 md:py-20 border-b border-neutral-100 dark:border-neutral-800">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-[#888888] mb-3">
+            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-neutral-500 dark:text-neutral-400 mb-3">
               Journey
             </p>
             <h2
-              className="text-[26px] md:text-[32px] font-semibold text-[#0d0d0d] mb-10"
+              className="text-[26px] md:text-[32px] font-semibold text-neutral-900 dark:text-neutral-100 mb-10"
               style={{ letterSpacing: "-0.5px" }}
             >
               Education &amp; Career
             </h2>
 
             <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-3.5 top-2 bottom-2 w-px bg-[rgba(0,0,0,0.05)]" />
+              <div className="absolute left-3.5 top-2 bottom-2 w-px bg-neutral-100 dark:bg-neutral-800" />
 
               <div className="flex flex-col gap-8">
-                {/* Career entries (newest first) */}
                 {[...p.carrierPath].reverse().map((entry, i) => (
                   <div key={i} className="flex gap-6 pl-0">
-                    {/* Dot */}
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[#18E299] bg-white flex items-center justify-center z-10">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[#18E299] bg-white dark:bg-neutral-950 flex items-center justify-center z-10">
                       <div className="w-2 h-2 rounded-full bg-[#18E299]" />
                     </div>
                     <div className="flex-1 pb-2">
-                      <div className="rounded-2xl border border-[rgba(0,0,0,0.05)] bg-white p-5 shadow-[rgba(0,0,0,0.03)_0px_2px_4px]">
+                      <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                           <div>
-                            <p className="text-[16px] font-semibold text-[#0d0d0d]">{entry.role}</p>
+                            <p className="text-[16px] font-semibold text-neutral-900 dark:text-neutral-100">{entry.role}</p>
                             <p className="text-[14px] font-medium text-[#18E299]">{entry.company}</p>
                           </div>
-                          <span className="text-[12px] font-mono text-[#888888] bg-[#f5f5f5] px-3 py-1 rounded-full flex-shrink-0">
+                          <span className="text-[12px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">
                             {entry.period}
                           </span>
                         </div>
-                        <p className="text-[14px] text-[#666666] leading-relaxed">{entry.description}</p>
+                        <p className="text-[14px] text-neutral-500 dark:text-neutral-400 leading-relaxed">{entry.description}</p>
                       </div>
                     </div>
                   </div>
                 ))}
 
-                {/* Education entries */}
                 {p.education.map((edu, i) => (
                   <div key={i} className="flex gap-6">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[rgba(0,0,0,0.1)] bg-white flex items-center justify-center z-10">
-                      <div className="w-2 h-2 rounded-full bg-[#888888]" />
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-950 flex items-center justify-center z-10">
+                      <div className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500" />
                     </div>
                     <div className="flex-1 pb-2">
-                      <div className="rounded-2xl border border-[rgba(0,0,0,0.05)] bg-white p-5 shadow-[rgba(0,0,0,0.03)_0px_2px_4px]">
+                      <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                           <div>
-                            <p className="text-[16px] font-semibold text-[#0d0d0d]">{edu.degree} — {edu.field}</p>
-                            <p className="text-[14px] text-[#666666]">{edu.institution}</p>
+                            <p className="text-[16px] font-semibold text-neutral-900 dark:text-neutral-100">{edu.degree} — {edu.field}</p>
+                            <p className="text-[14px] text-neutral-500 dark:text-neutral-400">{edu.institution}</p>
                           </div>
-                          <span className="text-[12px] font-mono text-[#888888] bg-[#f5f5f5] px-3 py-1 rounded-full flex-shrink-0">
+                          <span className="text-[12px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">
                             {edu.year}
                           </span>
                         </div>
@@ -191,13 +185,13 @@ export default function AboutPage() {
         </section>
 
         {/* ── Skills ───────────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20 border-b border-[rgba(0,0,0,0.05)]">
+        <section className="py-16 md:py-20 border-b border-neutral-100 dark:border-neutral-800">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-[#888888] mb-3">
+            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-neutral-500 dark:text-neutral-400 mb-3">
               Technical
             </p>
             <h2
-              className="text-[26px] md:text-[32px] font-semibold text-[#0d0d0d] mb-8"
+              className="text-[26px] md:text-[32px] font-semibold text-neutral-900 dark:text-neutral-100 mb-8"
               style={{ letterSpacing: "-0.5px" }}
             >
               Skills
@@ -206,7 +200,7 @@ export default function AboutPage() {
               {p.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 rounded-full border border-[rgba(0,0,0,0.05)] bg-white text-[14px] font-medium text-[#333333] shadow-[rgba(0,0,0,0.03)_0px_2px_4px]"
+                  className="px-4 py-2 rounded-full border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-[14px] font-medium text-neutral-700 dark:text-neutral-300"
                 >
                   {skill}
                 </span>
@@ -218,22 +212,22 @@ export default function AboutPage() {
         {/* ── Contact ──────────────────────────────────────────────────────── */}
         <section className="py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-[#888888] mb-3">
+            <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-neutral-500 dark:text-neutral-400 mb-3">
               Contact
             </p>
             <h2
-              className="text-[26px] md:text-[32px] font-semibold text-[#0d0d0d] mb-4"
+              className="text-[26px] md:text-[32px] font-semibold text-neutral-900 dark:text-neutral-100 mb-4"
               style={{ letterSpacing: "-0.5px" }}
             >
               Get in Touch
             </h2>
-            <p className="text-[16px] text-[#666666] mb-8 max-w-lg">
+            <p className="text-[16px] text-neutral-500 dark:text-neutral-400 mb-8 max-w-lg">
               Whether it&apos;s a project idea, a job opportunity, or just a chat about tech — my inbox is always open.
             </p>
             <a
               href={`mailto:${p.contact.email}`}
               id="contact-email-btn"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#0d0d0d] text-white text-[15px] font-medium hover:opacity-90 transition-opacity duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[15px] font-medium hover:opacity-90 dark:hover:opacity-80 transition-opacity duration-200"
             >
               {p.contact.email}
             </a>
