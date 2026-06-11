@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { people } from "@/lib/data";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
@@ -17,7 +18,17 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,16 +47,14 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 group"
-        >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#18E299] to-[#0fa76e] flex items-center justify-center text-white font-bold shadow-sm transition-transform duration-300 transform group-hover:scale-105">
-            {people.name.charAt(0)}
-          </div>
-          <span className="font-semibold text-[15px] text-neutral-900 dark:text-neutral-100 tracking-tight hidden sm:block">
-            {people.name.split(" ")[0]}
-          </span>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Image
+            src={isDark ? "/images/logo-light.png" : "/images/logo-dark.png"}
+            alt="Logo"
+            width={1080}
+            height={1080}
+            className="h-8 w-auto object-contain"
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-1">

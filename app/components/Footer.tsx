@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-neutral-100 dark:border-neutral-800">
           <p className="text-[12px] text-neutral-400 dark:text-neutral-500">
-            © {year} {people.name}. Built with Next.js & Tailwind CSS.
+            © {year} {people.name}. Built with ❤️
           </p>
         </div>
       </div>

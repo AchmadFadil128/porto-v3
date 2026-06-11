@@ -63,6 +63,8 @@ export default function ParticleField() {
           p.vy -= dy / dist * 0.005;
         }
 
+        p.vx += (Math.random() - 0.5) * 0.02;
+        p.vy += (Math.random() - 0.5) * 0.02;
         p.vx *= 0.98;
         p.vy *= 0.98;
         p.x += p.vx;

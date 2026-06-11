@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { people } from "@/lib/data";
@@ -63,9 +64,13 @@ export default function AboutPage() {
               About
             </p>
 
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#18E299] to-[#0fa76e] flex items-center justify-center mb-6 text-white text-[22px] font-semibold shadow-[rgba(0,0,0,0.06)_0px_1px_2px]">
-              {p.name.split(" ").map(n => n[0]).join("").substring(0, 2).toUpperCase()}
-            </div>
+            <Image
+              src="/images/nobg-profile.png"
+              alt={p.name}
+              width={1080}
+              height={1080}
+              className="w-60 h-60 rounded-full object-cover mb-6 shadow-[rgba(0,0,0,0.06)_0px_1px_2px]"
+            />
 
             <h1
               className="text-[36px] md:text-[52px] font-semibold text-neutral-900 dark:text-neutral-100 mb-3 leading-tight"
