@@ -85,7 +85,7 @@ export default function HeroSection({ name, title, description }: Props) {
 
             <h1
               ref={headingRef}
-              className="text-[52px] sm:text-[64px] md:text-[80px] font-bold text-neutral-900 dark:text-neutral-100 leading-[0.95] mb-4 tracking-[-2px]"
+              className="text-[40px] sm:text-[56px] md:text-[80px] font-bold text-neutral-900 dark:text-neutral-100 leading-[0.95] mb-4 tracking-[-2px]"
               style={{ opacity: 0 }}
             >
               {name}
@@ -107,7 +107,7 @@ export default function HeroSection({ name, title, description }: Props) {
               {description}
             </p>
 
-            <div ref={ctaRef} className="flex flex-wrap items-center gap-3">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3">
               <Link
                 href="/about"
                 className="group relative px-7 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[15px] font-medium overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/5"
@@ -126,7 +126,7 @@ export default function HeroSection({ name, title, description }: Props) {
 
           <div
             ref={lanyardRef}
-            className="relative w-full h-[450px] md:h-[600px] flex justify-center items-center"
+              className="relative w-full h-[320px] sm:h-[450px] md:h-[600px] hidden lg:flex justify-center items-center"
             style={{ opacity: 0 }}
           >
             <LanyardWrapper
@@ -142,7 +142,7 @@ export default function HeroSection({ name, title, description }: Props) {
 
       <div
         ref={scrollRef}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
         style={{ opacity: 0 }}
       >
         <span className="text-[10px] font-mono font-medium uppercase tracking-[2px] text-neutral-400 dark:text-neutral-500">

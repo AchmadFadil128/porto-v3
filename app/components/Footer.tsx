@@ -43,8 +43,8 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-12">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 py-10 md:py-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
 
           <div>
             <p className="font-semibold text-[15px] text-neutral-900 dark:text-neutral-100 tracking-tight mb-1">
@@ -55,7 +55,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
             {footerLinks.map(({ href, label }) => (
               <a
                 key={href}
@@ -67,7 +67,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {socialLinks.map(({ href, label, icon }) => (
               <a
                 key={href}
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-neutral-100 dark:border-neutral-800">
+        <div className="mt-6 md:mt-8 pt-5 md:pt-6 border-t border-neutral-100 dark:border-neutral-800">
           <p className="text-[12px] text-neutral-400 dark:text-neutral-500">
             © {year} {people.name}. Built with ❤️
           </p>

@@ -43,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -53,6 +54,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 .dark body,
@@ -132,11 +134,30 @@ body {
 /* ─── Prose styles for long description ─────────────────────────────────────── */
 .prose-content p {
   margin-bottom: 1rem;
-  color: #333333;
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 .prose-content p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 639px) {
+  .prose-content p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 0.875rem;
+  }
+}
+
+/* ─── Touch-friendly interactions ─────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .card-hover:hover {
+    transform: none;
+  }
+  .card-hover:active {
+    border-color: var(--border-medium);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 12px;
+  }
 }
 
 /* ─── View Transitions API (Theme Toggler) ──────────────────────────────────── */

@@ -10,6 +10,7 @@ const statusConfig: Record<string, { bg: string; text: string; dot: string; dark
   "In Progress": { bg: "#d4fae8", text: "#0fa76e", dot: "#18E299", darkBg: "rgba(24,226,153,0.12)", darkText: "#6ee7b7" },
   "On Hold": { bg: "#FEF9C3", text: "#a16207", dot: "#c37d0d", darkBg: "rgba(195,125,13,0.15)", darkText: "#fcd34d" },
   Completed: { bg: "#d4fae8", text: "#0fa76e", dot: "#18E299", darkBg: "rgba(24,226,153,0.12)", darkText: "#6ee7b7" },
+  Published: { bg: "#d4fae8", text: "#0fa76e", dot: "#18E299", darkBg: "rgba(24,226,153,0.12)", darkText: "#6ee7b7" },
   Cancelled: { bg: "#FEE2E2", text: "#d45656", dot: "#d45656", darkBg: "rgba(212,86,86,0.15)", darkText: "#fca5a5" },
   Active: { bg: "#d4fae8", text: "#0fa76e", dot: "#18E299", darkBg: "rgba(24,226,153,0.12)", darkText: "#6ee7b7" },
   "Near Expiry": { bg: "#FEF9C3", text: "#a16207", dot: "#c37d0d", darkBg: "rgba(195,125,13,0.15)", darkText: "#fcd34d" },

@@ -49,11 +49,11 @@ export default async function ProjectDetailPage({ params }: Props) {
       <Navbar />
       <main className="flex-1">
         {/* Breadcrumb + header */}
-        <section className="hero-gradient pt-20 pb-12 md:pt-28 md:pb-16 border-b border-[rgba(0,0,0,0.05)]">
+        <section className="hero-gradient pt-20 pb-12 md:pt-28 md:pb-16 border-b border-neutral-100 dark:border-neutral-800">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#888888] hover:text-[#18E299] transition-colors duration-200 mb-6"
+              className="inline-flex items-center gap-1.5 text-[13px] font-medium text-neutral-400 dark:text-neutral-500 hover:text-[#18E299] transition-colors duration-200 mb-6"
             >
               ← Back to Projects
             </Link>
@@ -63,21 +63,21 @@ export default async function ProjectDetailPage({ params }: Props) {
             </div>
 
             <h1
-              className="text-[32px] md:text-[44px] font-semibold text-[#0d0d0d] mb-4 leading-tight"
+              className="text-[32px] md:text-[44px] font-semibold text-neutral-900 dark:text-neutral-100 mb-4 leading-tight"
               style={{ letterSpacing: "-0.8px" }}
             >
               {project.name}
             </h1>
-            <p className="text-[16px] text-[#666666] mb-6">{project.shortDescription}</p>
+            <p className="text-[16px] text-neutral-500 dark:text-neutral-400 mb-6">{project.shortDescription}</p>
 
-            <div className="flex flex-wrap items-center gap-4 text-[13px] text-[#888888]">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[12px] sm:text-[13px] text-neutral-400 dark:text-neutral-500">
               <span className="font-mono">{date}</span>
               <span>·</span>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-1 rounded-full bg-[#f5f5f5] text-[#333333] text-[12px] font-mono font-medium"
+                    className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 text-[11px] sm:text-[12px] font-mono font-medium whitespace-nowrap"
                   >
                     {tech}
                   </span>
@@ -90,7 +90,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         {/* Featured image */}
         <section className="py-10 md:py-14">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.05)] shadow-[rgba(0,0,0,0.03)_0px_2px_4px]">
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-neutral-100 dark:border-neutral-800 shadow-[0_2px_4px_rgba(0,0,0,0.03)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2)]">
               <Image
                 src={project.pictureUrl}
                 alt={project.name}
@@ -108,7 +108,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <div className="prose-content max-w-none">
               {paragraphs.map((para, i) => (
-                <p key={i} className="text-[16px] text-[#333333] leading-[1.8] mb-5">
+                <p key={i} className="text-[15px] sm:text-[16px] leading-[1.8] mb-4 sm:mb-5">
                   {para}
                 </p>
               ))}
@@ -118,16 +118,16 @@ export default async function ProjectDetailPage({ params }: Props) {
 
         {/* Gallery */}
         {project.otherPictures.length > 0 && (
-          <section className="pb-16 md:pb-24 border-t border-[rgba(0,0,0,0.05)] pt-12">
+          <section className="pb-16 md:pb-24 border-t border-neutral-100 dark:border-neutral-800 pt-12">
             <div className="max-w-4xl mx-auto px-6 md:px-8">
-              <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-[#888888] mb-6">
+              <p className="text-[12px] font-mono font-medium uppercase tracking-[0.65px] text-neutral-400 dark:text-neutral-500 mb-6">
                 Gallery
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {project.otherPictures.map((src, i) => (
                   <div
                     key={i}
-                    className="relative w-full aspect-video rounded-xl overflow-hidden border border-[rgba(0,0,0,0.05)] shadow-[rgba(0,0,0,0.03)_0px_2px_4px]"
+                    className="relative w-full aspect-video rounded-xl overflow-hidden border border-neutral-100 dark:border-neutral-800 shadow-[0_2px_4px_rgba(0,0,0,0.03)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
                   >
                     <Image
                       src={src}

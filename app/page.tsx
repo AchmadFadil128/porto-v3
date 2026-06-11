@@ -46,7 +46,7 @@ export default async function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 {/* Working At */}
-                <div className="group rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-8 transition-all duration-300 hover:border-[#18E299]/20 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-xl hover:shadow-[rgba(24,226,153,0.04)] dark:hover:shadow-[rgba(24,226,153,0.06)] hover:-translate-y-0.5">
+                <div className="group rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5 sm:p-8 transition-all duration-300 hover:border-[#18E299]/20 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-xl hover:shadow-[rgba(24,226,153,0.04)] dark:hover:shadow-[rgba(24,226,153,0.06)] hover:-translate-y-0.5">
                   <div className="w-10 h-10 rounded-xl bg-brand-light dark:bg-brand-light/20 flex items-center justify-center mb-5 text-brand-deep dark:text-[#6ee7b7]">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
@@ -61,7 +61,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Skills */}
-                <div className="group rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-8 transition-all duration-300 hover:border-[#18E299]/20 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-xl hover:shadow-[rgba(24,226,153,0.04)] dark:hover:shadow-[rgba(24,226,153,0.06)] hover:-translate-y-0.5">
+                <div className="group rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5 sm:p-8 transition-all duration-300 hover:border-[#18E299]/20 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-xl hover:shadow-[rgba(24,226,153,0.04)] dark:hover:shadow-[rgba(24,226,153,0.06)] hover:-translate-y-0.5">
                   <div className="w-10 h-10 rounded-xl bg-brand-light dark:bg-brand-light/20 flex items-center justify-center mb-5 text-brand-deep dark:text-[#6ee7b7]">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="16 18 22 12 16 6" />
@@ -89,7 +89,7 @@ export default async function HomePage() {
                 </div>
 
                 {/* Education */}
-                <div className="group rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-8 transition-all duration-300 hover:border-[#18E299]/20 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-xl hover:shadow-[rgba(24,226,153,0.04)] dark:hover:shadow-[rgba(24,226,153,0.06)] hover:-translate-y-0.5">
+                <div className="group rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-5 sm:p-8 transition-all duration-300 hover:border-[#18E299]/20 hover:bg-white dark:hover:bg-neutral-800 hover:shadow-xl hover:shadow-[rgba(24,226,153,0.04)] dark:hover:shadow-[rgba(24,226,153,0.06)] hover:-translate-y-0.5">
                   <div className="w-10 h-10 rounded-xl bg-brand-light dark:bg-brand-light/20 flex items-center justify-center mb-5 text-brand-deep dark:text-[#6ee7b7]">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -161,7 +161,7 @@ export default async function HomePage() {
             </div>
 
             <AnimatedSection>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {projects.slice(0, 3).map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
@@ -217,7 +217,7 @@ export default async function HomePage() {
             </div>
 
             <AnimatedSection>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {writings.slice(0, 3).map((writing) => (
                   <WritingCard key={writing.id} writing={writing} />
                 ))}
@@ -273,7 +273,7 @@ export default async function HomePage() {
             </div>
 
             <AnimatedSection>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {certs.slice(0, 3).map((cert) => (
                   <CertificationCard key={cert.id} cert={cert} />
                 ))}

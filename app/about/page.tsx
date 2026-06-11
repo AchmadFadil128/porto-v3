@@ -69,7 +69,7 @@ export default function AboutPage() {
               alt={p.name}
               width={1080}
               height={1080}
-              className="w-60 h-60 rounded-full object-cover mb-6 shadow-[rgba(0,0,0,0.06)_0px_1px_2px]"
+              className="w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full object-cover mb-6 shadow-[rgba(0,0,0,0.06)_0px_1px_2px]"
             />
 
             <h1
@@ -83,14 +83,14 @@ export default function AboutPage() {
               {p.description}
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-8">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mt-8">
               {social.map(({ href, label, icon }) => (
                 <a
                   key={href}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-[13px] font-medium text-neutral-700 dark:text-neutral-300 hover:border-[#18E299] hover:text-[#18E299] transition-all duration-200"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-[12px] sm:text-[13px] font-medium text-neutral-700 dark:text-neutral-300 hover:border-[#18E299] hover:text-[#18E299] transition-all duration-200"
                 >
                   {icon}
                   {label}
@@ -147,18 +147,18 @@ export default function AboutPage() {
                     <div className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[#18E299] bg-white dark:bg-neutral-950 flex items-center justify-center z-10">
                       <div className="w-2 h-2 rounded-full bg-[#18E299]" />
                     </div>
-                    <div className="flex-1 pb-2">
-                      <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5">
+                    <div className="flex-1 pb-1 sm:pb-2">
+                      <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-5">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                          <div>
-                            <p className="text-[16px] font-semibold text-neutral-900 dark:text-neutral-100">{entry.role}</p>
-                            <p className="text-[14px] font-medium text-[#18E299]">{entry.company}</p>
+                          <div className="min-w-0">
+                            <p className="text-[15px] sm:text-[16px] font-semibold text-neutral-900 dark:text-neutral-100">{entry.role}</p>
+                            <p className="text-[13px] sm:text-[14px] font-medium text-[#18E299]">{entry.company}</p>
                           </div>
-                          <span className="text-[12px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">
+                          <span className="text-[11px] sm:text-[12px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 sm:px-3 py-1 rounded-full flex-shrink-0">
                             {entry.period}
                           </span>
                         </div>
-                        <p className="text-[14px] text-neutral-500 dark:text-neutral-400 leading-relaxed">{entry.description}</p>
+                        <p className="text-[13px] sm:text-[14px] text-neutral-500 dark:text-neutral-400 leading-relaxed">{entry.description}</p>
                       </div>
                     </div>
                   </div>
@@ -169,14 +169,14 @@ export default function AboutPage() {
                     <div className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-950 flex items-center justify-center z-10">
                       <div className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500" />
                     </div>
-                    <div className="flex-1 pb-2">
-                      <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5">
+                    <div className="flex-1 pb-1 sm:pb-2">
+                      <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-5">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                          <div>
-                            <p className="text-[16px] font-semibold text-neutral-900 dark:text-neutral-100">{edu.degree} — {edu.field}</p>
-                            <p className="text-[14px] text-neutral-500 dark:text-neutral-400">{edu.institution}</p>
+                          <div className="min-w-0">
+                            <p className="text-[15px] sm:text-[16px] font-semibold text-neutral-900 dark:text-neutral-100">{edu.degree} — {edu.field}</p>
+                            <p className="text-[13px] sm:text-[14px] text-neutral-500 dark:text-neutral-400">{edu.institution}</p>
                           </div>
-                          <span className="text-[12px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full flex-shrink-0">
+                          <span className="text-[11px] sm:text-[12px] font-mono text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 sm:px-3 py-1 rounded-full flex-shrink-0">
                             {edu.year}
                           </span>
                         </div>

@@ -15,11 +15,11 @@ export default function CertificationCard({ cert }: { cert: Certification }) {
         />
       </div>
 
-      <div className="p-5 flex flex-col gap-2 flex-1">
-        <h3 className="font-semibold text-[15px] text-neutral-900 dark:text-neutral-100 tracking-[-0.15px] leading-snug">
+      <div className="p-4 sm:p-5 flex flex-col gap-2 flex-1">
+        <h3 className="font-semibold text-[14px] sm:text-[15px] text-neutral-900 dark:text-neutral-100 tracking-[-0.15px] leading-snug line-clamp-2">
           {cert.name}
         </h3>
-        <p className="text-[12px] text-neutral-400 dark:text-neutral-500 font-mono uppercase tracking-[0.4px]">
+        <p className="text-[11px] sm:text-[12px] text-neutral-400 dark:text-neutral-500 font-mono uppercase tracking-[0.4px]">
           {cert.issuer}
         </p>
         <div className="mt-auto pt-3">

@@ -35,21 +35,21 @@ export default async function CertificationsPage() {
 
         <section className="py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-6 md:px-8">
-            <div className="flex flex-wrap gap-6 mb-10 pb-8 border-b border-neutral-100 dark:border-neutral-800">
+            <div className="flex flex-wrap gap-4 sm:gap-6 mb-10 pb-8 border-b border-neutral-100 dark:border-neutral-800">
               <div className="flex items-center gap-2">
-                <span className="text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{active}</span>
-                <span className="text-[13px] text-[#0fa76e] font-mono uppercase tracking-[0.4px]">Active</span>
+                <span className="text-[18px] sm:text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{active}</span>
+                <span className="text-[11px] sm:text-[13px] text-[#0fa76e] font-mono uppercase tracking-[0.4px]">Active</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{nearExpiry}</span>
-                <span className="text-[13px] text-[#a16207] dark:text-[#fcd34d] font-mono uppercase tracking-[0.4px]">Near Expiry</span>
+                <span className="text-[18px] sm:text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{nearExpiry}</span>
+                <span className="text-[11px] sm:text-[13px] text-[#a16207] dark:text-[#fcd34d] font-mono uppercase tracking-[0.4px]">Near Expiry</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{expired}</span>
-                <span className="text-[13px] text-[#d45656] dark:text-[#fca5a5] font-mono uppercase tracking-[0.4px]">Expired</span>
+                <span className="text-[18px] sm:text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{expired}</span>
+                <span className="text-[11px] sm:text-[13px] text-[#d45656] dark:text-[#fca5a5] font-mono uppercase tracking-[0.4px]">Expired</span>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {certs.map((cert) => (
                 <CertificationCard key={cert.id} cert={cert} />
               ))}

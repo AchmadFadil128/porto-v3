@@ -1,6 +1,6 @@
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type ProjectStatus = 'Planned' | 'In Progress' | 'On Hold' | 'Completed' | 'Cancelled';
-export type WritingStatus = 'Planned' | 'In Progress' | 'On Hold' | 'Completed';
+export type WritingStatus = 'Planned' | 'In Progress' | 'On Hold' | 'Completed' | 'Published';
 export type CertificationStatus = 'Active' | 'Near Expiry' | 'Expired';
 
 export interface Project {

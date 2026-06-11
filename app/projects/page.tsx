@@ -37,19 +37,19 @@ export default async function ProjectsPage() {
 
         <section className="py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-6 md:px-8">
-            <div className="flex flex-wrap gap-6 mb-10 pb-8 border-b border-neutral-100 dark:border-neutral-800">
+            <div className="flex flex-wrap gap-4 sm:gap-6 mb-10 pb-8 border-b border-neutral-100 dark:border-neutral-800">
               {(["Completed", "In Progress", "Planned", "On Hold"] as const).map((status) => {
                 const count = projects.filter((p) => p.status === status).length;
                 return (
                   <div key={status} className="flex items-center gap-2">
-                    <span className="text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{count}</span>
-                    <span className="text-[13px] text-neutral-500 dark:text-neutral-400 font-mono uppercase tracking-[0.4px]">{status}</span>
+                    <span className="text-[18px] sm:text-[20px] font-semibold text-neutral-900 dark:text-neutral-100">{count}</span>
+                    <span className="text-[11px] sm:text-[13px] text-neutral-500 dark:text-neutral-400 font-mono uppercase tracking-[0.4px]">{status}</span>
                   </div>
                 );
               })}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {projects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
