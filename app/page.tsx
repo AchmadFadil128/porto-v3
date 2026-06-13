@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import ProjectCard from "./components/ProjectCard";
 import WritingCard from "./components/WritingCard";
 import CertificationCard from "./components/CertificationCard";
@@ -18,7 +17,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Navbar />
+
       <main className="flex-1">
 
         {/* ── Hero ─────────────────────────────────────────────────────── */}
@@ -337,7 +336,7 @@ export default async function HomePage() {
         </section>
 
       </main>
-      <Footer />
+
     </>
   );
 }

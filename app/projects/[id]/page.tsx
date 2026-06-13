@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+
 import StatusBadge from "@/app/components/StatusBadge";
 import { getProjectById, getProjects } from "@/lib/data";
 
@@ -46,7 +45,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
+
       <main className="flex-1">
         {/* Breadcrumb + header */}
         <section className="hero-gradient pt-20 pb-12 md:pt-28 md:pb-16 border-b border-neutral-100 dark:border-neutral-800">
@@ -143,7 +142,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           </section>
         )}
       </main>
-      <Footer />
+
     </>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+
 import ProjectCard from "@/app/components/ProjectCard";
 import { getProjects } from "@/lib/data";
 import { people } from "@/lib/data";
@@ -15,7 +14,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <Navbar />
+
       <main className="flex-1">
 
         <section className="pt-20 pb-12 md:pt-28 md:pb-16 border-b border-neutral-100 dark:border-neutral-800">
@@ -38,7 +37,7 @@ export default async function ProjectsPage() {
         <section className="py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-6 md:px-8">
             <div className="flex flex-wrap gap-4 sm:gap-6 mb-10 pb-8 border-b border-neutral-100 dark:border-neutral-800">
-              {(["Completed", "In Progress", "Planned", "On Hold"] as const).map((status) => {
+              {(["Completed", "In Progress", "Planned", "On Hold", "Cancelled"] as const).map((status) => {
                 const count = projects.filter((p) => p.status === status).length;
                 return (
                   <div key={status} className="flex items-center gap-2">
@@ -57,7 +56,7 @@ export default async function ProjectsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }

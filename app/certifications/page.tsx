@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+
 import CertificationCard from "@/app/components/CertificationCard";
 import { getCertifications } from "@/lib/data";
 import { people } from "@/lib/data";
@@ -18,7 +17,7 @@ export default async function CertificationsPage() {
 
   return (
     <>
-      <Navbar />
+
       <main className="flex-1">
 
         <section className="pt-20 pb-12 md:pt-28 md:pb-16 border-b border-neutral-100 dark:border-neutral-800">
@@ -57,7 +56,7 @@ export default async function CertificationsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }

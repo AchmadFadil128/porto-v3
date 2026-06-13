@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   creator: people.name,
 };
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,7 +61,13 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col antialiased relative">
         <ParticleField />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Navbar />
+          <div className="flex flex-col flex-1 overflow-hidden relative">
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

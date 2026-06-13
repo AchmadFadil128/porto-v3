@@ -187,3 +187,21 @@ html[data-magicui-theme-vt="active"]::view-transition-group(root) {
   background: rgba(24, 226, 153, 0.3);
   color: #ffffff;
 }
+
+/* ─── Page entrance animation ───────────────────────────────────────────────── */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-page-enter {
+  animation: page-enter 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}

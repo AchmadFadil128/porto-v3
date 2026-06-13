@@ -30,7 +30,7 @@ export default function WritingCard({ writing }: { writing: Writing }) {
         <div className="flex items-center justify-between pt-1 border-t border-neutral-100 dark:border-neutral-800">
           <StatusBadge status={writing.status} size="sm" />
           <span className="text-[11px] sm:text-[12px] font-medium text-[#18E299] group-hover:underline">
-            {writing.status === "Completed" && writing.urlFile ? "Read →" : "Coming soon"}
+            {writing.status === "Published" && writing.urlFile ? "Read →" : "Coming soon"}
           </span>
         </div>
       </article>

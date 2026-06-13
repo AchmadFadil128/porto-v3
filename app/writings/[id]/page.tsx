@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+
 import StatusBadge from "@/app/components/StatusBadge";
 import { getWritingById, getWritings } from "@/lib/data";
 
@@ -42,7 +41,7 @@ export default async function WritingDetailPage({ params }: Props) {
 
   return (
     <>
-      <Navbar />
+
       <main className="flex-1">
         {/* Header */}
         <section className="hero-gradient pt-20 pb-12 md:pt-28 md:pb-16 border-b border-neutral-100 dark:border-neutral-800">
@@ -121,7 +120,7 @@ export default async function WritingDetailPage({ params }: Props) {
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }
