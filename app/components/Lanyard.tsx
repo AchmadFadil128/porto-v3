@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
@@ -47,8 +47,7 @@ export default function Lanyard({
   lanyardWidth?: number;
 }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
-  const [contextLost, setContextLost] = useState(false);
-  const [canvasKey, setCanvasKey] = useState(0);
+  const [showCanvas, setShowCanvas] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -57,81 +56,79 @@ export default function Lanyard({
   }, []);
 
   useEffect(() => {
-    if (contextLost) {
-      const timer = setTimeout(() => {
-        setCanvasKey((k) => k + 1);
-        setContextLost(false);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [contextLost]);
+    // Delay render to prevent WebGL crash during initial React hydration and GSAP animations
+    // This allows the DOM to settle and prevents blocking the main thread immediately.
+    const timer = setTimeout(() => setShowCanvas(true), 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCreated = useCallback(
     (state: any) => {
       const gl = state.gl as THREE.WebGLRenderer;
       gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
-      const canvas = gl.domElement;
-      canvas.addEventListener('webglcontextlost', (e: Event) => {
-        e.preventDefault();
-        setContextLost(true);
-      });
-      canvas.addEventListener('webglcontextrestored', () => {
-        setContextLost(false);
-      });
     },
     [transparent]
   );
+
+  // If the window is smaller than 1024px (lg breakpoint), the container is hidden by CSS (hidden lg:flex).
+  // Don't initialize WebGL on hidden containers to save resources and prevent 0x0 canvas errors.
+  const isHidden = typeof window !== 'undefined' && window.innerWidth < 1024;
+
+  if (!showCanvas || isHidden) {
+    return <div className="lanyard-wrapper" />;
+  }
 
   return (
     <div className="lanyard-wrapper">
       <Canvas
         camera={{ position: position, fov: fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent }}
+        gl={{ alpha: transparent, powerPreference: "high-performance", antialias: false }}
         onCreated={handleCreated}
-        key={canvasKey}
       >
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
-          <Band
-            isMobile={isMobile}
-            frontImage={frontImage}
-            backImage={backImage}
-            imageFit={imageFit}
-            lanyardImage={lanyardImage}
-            lanyardWidth={lanyardWidth}
-          />
-        </Physics>
-        <Environment blur={0.75}>
-          <Lightformer
-            intensity={2}
-            color="white"
-            position={[0, -1, 5]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={3}
-            color="white"
-            position={[-1, -1, 1]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={3}
-            color="white"
-            position={[1, 1, 1]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={10}
-            color="white"
-            position={[-10, 0, 14]}
-            rotation={[0, Math.PI / 2, Math.PI / 3]}
-            scale={[100, 10, 1]}
-          />
-        </Environment>
+        <Suspense fallback={null}>
+          <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
+            <Band
+              isMobile={isMobile}
+              frontImage={frontImage}
+              backImage={backImage}
+              imageFit={imageFit}
+              lanyardImage={lanyardImage}
+              lanyardWidth={lanyardWidth}
+            />
+          </Physics>
+          <Environment blur={0.75}>
+            <Lightformer
+              intensity={2}
+              color="white"
+              position={[0, -1, 5]}
+              rotation={[0, 0, Math.PI / 3]}
+              scale={[100, 0.1, 1]}
+            />
+            <Lightformer
+              intensity={3}
+              color="white"
+              position={[-1, -1, 1]}
+              rotation={[0, 0, Math.PI / 3]}
+              scale={[100, 0.1, 1]}
+            />
+            <Lightformer
+              intensity={3}
+              color="white"
+              position={[1, 1, 1]}
+              rotation={[0, 0, Math.PI / 3]}
+              scale={[100, 0.1, 1]}
+            />
+            <Lightformer
+              intensity={10}
+              color="white"
+              position={[-10, 0, 14]}
+              rotation={[0, Math.PI / 2, Math.PI / 3]}
+              scale={[100, 10, 1]}
+            />
+          </Environment>
+        </Suspense>
       </Canvas>
     </div>
   );
@@ -336,3 +333,6 @@ function Band({
     </>
   );
 }
+
+useGLTF.preload(cardGLB);
+useTexture.preload(lanyardPNG);
