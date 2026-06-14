@@ -34,7 +34,8 @@ export default function Lanyard({
   backImage = null,
   imageFit = 'cover',
   lanyardImage = null,
-  lanyardWidth = 1
+  lanyardWidth = 1,
+  aspectCorrection = 1,
 }: {
   position?: [number, number, number];
   gravity?: [number, number, number];
@@ -45,6 +46,7 @@ export default function Lanyard({
   imageFit?: 'cover' | 'contain';
   lanyardImage?: string | null;
   lanyardWidth?: number;
+  aspectCorrection?: number;
 }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
   const [showCanvas, setShowCanvas] = useState(false);
@@ -96,6 +98,7 @@ export default function Lanyard({
               imageFit={imageFit}
               lanyardImage={lanyardImage}
               lanyardWidth={lanyardWidth}
+              aspectCorrection={aspectCorrection}
             />
           </Physics>
           <Environment blur={0.75}>
@@ -142,7 +145,8 @@ function Band({
   backImage = null,
   imageFit = 'cover',
   lanyardImage = null,
-  lanyardWidth = 1
+  lanyardWidth = 1,
+  aspectCorrection = 1,
 }: {
   maxSpeed?: number;
   minSpeed?: number;
@@ -152,6 +156,7 @@ function Band({
   imageFit?: 'cover' | 'contain';
   lanyardImage?: string | null;
   lanyardWidth?: number;
+  aspectCorrection?: number;
 }) {
   const band = useRef<any>(null),
     fixed = useRef<any>(null),
@@ -199,12 +204,16 @@ function Band({
       const ry = rect.y * H;
       const rw = rect.w * W;
       const rh = rect.h * H;
+      
+      const adjustedRw = rw * aspectCorrection;
       const pick = imageFit === 'contain' ? Math.min : Math.max;
-      const scale = pick(rw / img.width, rh / img.height);
-      const dw = img.width * scale;
+      const scale = pick(adjustedRw / img.width, rh / img.height);
+      
+      const dw = (img.width * scale) / aspectCorrection;
       const dh = img.height * scale;
       const dx = rx + (rw - dw) / 2;
       const dy = ry + (rh - dh) / 2;
+      
       ctx.save();
       ctx.beginPath();
       ctx.rect(rx, ry, rw, rh);

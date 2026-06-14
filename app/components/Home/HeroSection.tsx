@@ -50,8 +50,8 @@ export default function HeroSection({ name, title, description }: Props) {
         '-=0.2'
       )
       .fromTo(lanyardRef.current,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1 },
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 },
         '-=0.6'
       )
       .fromTo(scrollRef.current,
@@ -135,6 +135,7 @@ export default function HeroSection({ name, title, description }: Props) {
               frontImage="/images/profil.png"
               transparent={true}
               lanyardWidth={2}
+              aspectCorrection={1.1}
             />
           </div>
         </div>
