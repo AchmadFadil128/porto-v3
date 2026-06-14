@@ -27,7 +27,7 @@ export default async function CertificationsPage() {
               Certifications
             </h1>
             <p className="text-[16px] text-neutral-500 dark:text-neutral-400 max-w-xl">
-              Industry certifications validating expertise across cloud, infrastructure, and software development.
+              A collection of certifications and achievements earned through continuous learning and hands-on experience.
             </p>
           </div>
         </section>

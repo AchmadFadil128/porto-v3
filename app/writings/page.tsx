@@ -29,7 +29,7 @@ export default async function WritingsPage() {
               All Writings
             </h1>
             <p className="text-[16px] text-neutral-500 dark:text-neutral-400 max-w-xl">
-              Articles, deep dives, and notes on software engineering, backend systems, and the web.
+              Essays, reflections, and notes on technology, society, ideas, and the questions that shape how we live, build, and think.
             </p>
           </div>
         </section>

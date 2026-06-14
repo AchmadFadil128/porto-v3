@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
               All Projects
             </h1>
             <p className="text-[16px] text-neutral-500 dark:text-neutral-400 max-w-xl">
-              A collection of things I&apos;ve built — from full-stack web apps to distributed systems and tooling.
+              Projects, experiments, and ideas that reflect my journey as a cloud engineer and lifelong learner.
             </p>
           </div>
         </section>
