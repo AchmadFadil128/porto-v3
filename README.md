@@ -1,6 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio v3
 
-## Getting Started
+Welcome to the third iteration of my personal portfolio website. Built from scratch with Next.js App Router, Tailwind CSS v4, and a Golang REST API for content management. 
+
+The project features a clean, documentation-inspired design system modeled after Mintlify — emphasizing readability, generous whitespace, and subtle micro-interactions.
+
+## 🚀 Tech Stack
+
+- **Frontend:** Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Framer Motion
+- **Backend (API):** Go, PostgreSQL
+- **Storage:** SeaweedFS (Local file server integration)
+- **UI & 3D Elements:** React Three Fiber (3D Lanyard component), GSAP
+
+## ✨ Features
+
+- **Modern & Responsive UI:** Built with Tailwind CSS v4 and a documentation-inspired aesthetic.
+- **Dynamic Content:** Projects, writings, and certifications are fetched dynamically from a Go REST API backend.
+- **Interactive 3D Lanyard:** A fully functional, physics-simulated 3D lanyard component on the hero section.
+- **Smooth Page Transitions:** Framer Motion enables horizontal sliding transitions between pages while maintaining a static navigation bar.
+- **Centralized Data:** Static information and metadata are seamlessly sourced from a central `lib/data.ts` configuration.
+- **SeaweedFS Integration:** Robust file upload system natively integrating with a local SeaweedFS cluster.
+
+## 📦 Getting Started
 
 First, run the development server:
 
@@ -16,21 +36,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ensure you have your Go REST API and SeaweedFS instances running. Set the required environment variables:
 
-## Learn More
+```env
+API_BASE_URL=http://localhost:4000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 👤 Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Achmad Fadil Nur Ramdhani**
+*Junior Cloud Engineer*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GitHub: [@AchmadFadil128](https://github.com/AchmadFadil128)
+- LinkedIn: [Achmad Fadil Nur Ramdhani](https://linkedin.com/in/achmad-fadil-nur-ramdhani/)
+- Twitter: [@achmad128f](https://x.com/achmad128f)
