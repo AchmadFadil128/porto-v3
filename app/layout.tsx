@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 export default function RootLayout({
   children,
@@ -60,6 +61,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased relative">
+        <LoadingScreen />
         <ParticleField />
         <ThemeProvider>
           <Navbar />

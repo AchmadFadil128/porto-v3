@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -11,6 +12,14 @@ const nextConfig: NextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
+      },
+      {
+        protocol: "http",
+        hostname: "dashboardsvc",
+      },
+      {
+        protocol: "https",
+        hostname: "*.achmad128.my.id",
       },
       {
         protocol: "https",
